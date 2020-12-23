@@ -1,7 +1,8 @@
-package org.wit.guildmanagerapp
+package org.wit.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import org.wit.guildmanagerapp.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
