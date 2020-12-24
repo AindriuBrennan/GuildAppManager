@@ -46,10 +46,8 @@ class SignupActivity: AppCompatActivity(), AnkoLogger {
                             Toast.makeText(this, "Thank you for Registering!", Toast.LENGTH_SHORT)
                                 .show()
                             info("successful sign-up")
-                            /*
-                           todo: put in scene change here for sucessful signup
-                             */
-
+                           val intent = Intent(this, MainActivity::class.java)
+                            startActivity(intent)
                             finish()
                         } else {
                             info("sign-up failed")

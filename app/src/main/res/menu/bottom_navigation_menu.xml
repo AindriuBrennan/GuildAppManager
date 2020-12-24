@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/homeFragment"
+        android:title="Home"
+        android:icon="@drawable/home_foreground"/>
+
+    <item android:id="@+id/createPlayerFragment"
+        android:title="New Player"
+        android:icon="@drawable/add_player_foreground"/>
+
+    <item android:id="@+id/raidGearFragment"
+        android:title="Raid Day"
+        android:icon="@drawable/gear_raid_day_foreground"/>
+
+    <item android:id="@+id/searchFragment"
+        android:title="Search"
+        android:icon="@drawable/search_foreground"/>
+
+</menu>
