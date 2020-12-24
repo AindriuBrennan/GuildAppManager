@@ -45,9 +45,9 @@ class LoginActivity: AppCompatActivity(), AnkoLogger {
                     if(task.isSuccessful) {
                         Toast.makeText(this, "Login Success!", Toast.LENGTH_SHORT).show()
                         info("successful login")
-                        /*
-                        todo: put in scene change here for sucessful login
-                         */
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
                     } else {
                         Toast.makeText(this,"Login Details Incorrect", Toast.LENGTH_LONG).show()
                         info("login failed")
