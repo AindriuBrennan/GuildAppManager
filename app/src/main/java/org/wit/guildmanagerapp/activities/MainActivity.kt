@@ -12,12 +12,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setupViews()
 
 
-        fun setupViews() {
-            var navController = findNavController(R.id.fragNavHost)
+    }
 
-            bottomNavView.setupWithNavController(navController)
-        }
+    fun setupViews() {
+        var navController = findNavController(R.id.fragNavHost)
+
+        bottomNavView.setupWithNavController(navController)
     }
 }
