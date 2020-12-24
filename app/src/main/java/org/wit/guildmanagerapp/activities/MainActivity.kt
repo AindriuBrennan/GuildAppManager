@@ -3,6 +3,7 @@ package org.wit.guildmanagerapp.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.findNavController
+import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import kotlinx.android.synthetic.main.activity_main.*
 import org.wit.guildmanagerapp.R
@@ -21,5 +22,7 @@ class MainActivity : AppCompatActivity() {
         var navController = findNavController(R.id.fragNavHost)
 
         bottomNavView.setupWithNavController(navController)
+
+        setupActionBarWithNavController(navController)
     }
 }
