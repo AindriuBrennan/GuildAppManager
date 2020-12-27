@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "730485828244",
+    "firebase_url": "https://guildmanagerapp-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "guildmanagerapp",
     "storage_bucket": "guildmanagerapp.appspot.com"
   },

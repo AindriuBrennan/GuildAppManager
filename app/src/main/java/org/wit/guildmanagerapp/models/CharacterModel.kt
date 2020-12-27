@@ -1,10 +1,14 @@
 package org.wit.guildmanagerapp.models
 
+import com.google.firebase.database.Exclude
+import kotlinx.android.parcel.Parcelize
 import java.time.LocalDate
 import java.util.ArrayList
 
-class CharacterModel(
-    var id: Long? = 0,
+
+data class CharacterModel(
+
+    var id: String? = "",
     var name: String = "",
     var race: String? = "",
     var classType: String? = "",
