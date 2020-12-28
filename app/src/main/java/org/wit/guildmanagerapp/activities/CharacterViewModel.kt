@@ -25,12 +25,15 @@ class CharacterViewModel : ViewModel() {
     fun addCharacter(character: CharacterModel) {
 
         character.id = dbCharacterModels.push().key
-        dbCharacterModels.child(character.id!!).setValue(character).addOnCompleteListener {
-            if(it.isSuccessful){
-                _result.value = null
-            } else {
-                _result.value = it.exception
+        character.id?.let {
+            dbCharacterModels.child(it).setValue(character).addOnCompleteListener {
+                if(it.isSuccessful){
+                    _result.value = null
+                } else {
+                    _result.value = it.exception
+                }
             }
         }
+
     }
 }

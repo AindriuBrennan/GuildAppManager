@@ -2,6 +2,7 @@ package org.wit.guildmanagerapp.activities
 
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.fragment_create_player.*
 import kotlinx.android.synthetic.main.fragment_create_player.view.*
@@ -17,6 +21,7 @@ import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.wit.guildmanagerapp.R
 import org.wit.guildmanagerapp.models.CharacterModel
+import kotlin.math.log
 
 
 class CreatePlayerFragment: Fragment(), AnkoLogger {
@@ -26,10 +31,6 @@ class CreatePlayerFragment: Fragment(), AnkoLogger {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
-
-
     }
 
     override fun onCreateView(
@@ -40,7 +41,6 @@ class CreatePlayerFragment: Fragment(), AnkoLogger {
 
         viewModel = ViewModelProvider(this).get(CharacterViewModel::class.java)
         return inflater.inflate(R.layout.fragment_create_player, container, false)
-
     }
 
 
@@ -51,7 +51,7 @@ class CreatePlayerFragment: Fragment(), AnkoLogger {
         viewModel.result.observe(viewLifecycleOwner, Observer {
             val message = if (it == null) {
                 getString(R.string.character_added)
-            } else {0
+            } else {
                 getString(R.string.character_failure, it.message)
             }
             Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
@@ -64,20 +64,14 @@ class CreatePlayerFragment: Fragment(), AnkoLogger {
             val classType: String = editTextClass.text.toString().trim()
             info("button clicked")
             if (TextUtils.isEmpty(name)) {
-
                 input_layout_name.error = getString(R.string.field_required_error)
                 return@setOnClickListener
             }
-
             val character = CharacterModel()
             character.name = name
             character.race = race
             character.classType = classType
             viewModel.addCharacter(character)
-            println(name)
-            println(race)
-            println(classType)
-
         }
 
         clear.setOnClickListener {

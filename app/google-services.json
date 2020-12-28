@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "730485828244-f4qcgejbnhd86gunpefda3ipbmhoj1m0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.wit.guildmanagerapp",
+            "certificate_hash": "8cd0e2c5d9fccd6efc72fd3370e7ae269af6cf81"
+          }
+        },
+        {
           "client_id": "730485828244-89clrgm3503pg1ok6hpdd886qr4b5ml7.apps.googleusercontent.com",
           "client_type": 3
         }
