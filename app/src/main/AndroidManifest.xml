@@ -22,7 +22,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             </activity>
-        <activity android:name=".activities.MainActivity"></activity>
+        <activity
+            android:name=".activities.MainActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
         <activity android:name=".activities.SignupActivity"></activity>
         <activity android:name=".activities.LoginActivity"></activity>
     </application>
