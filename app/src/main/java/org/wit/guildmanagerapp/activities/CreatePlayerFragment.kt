@@ -22,11 +22,8 @@ import org.wit.guildmanagerapp.R
 class CreatePlayerFragment: Fragment(), AnkoLogger {
 
     private lateinit var viewModel: CharacterViewModel
-//    private lateinit var submit: Button
+    private val adapter = CharacterModelAdapter()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,18 +37,14 @@ class CreatePlayerFragment: Fragment(), AnkoLogger {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
         super.onViewCreated(view, savedInstanceState)
-        //        display message on succesful character creation, display dynamic error message on failure
-        viewModel.result.observe(viewLifecycleOwner, Observer {
-            val message = if (it == null) {
-                getString(R.string.character_added)
-            } else {
-                getString(R.string.character_failure, it.message)
-            }
-            Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
-        })
 
+        recycler_view_characters.adapter = adapter
+        viewModel.getCharacters()
+
+        viewModel.characterModel.observe(viewLifecycleOwner, Observer {
+            adapter.setCharcaters(it)
+        })
 
         button_add_character.setOnClickListener{
             CreatePlayerPopupFragment().show(childFragmentManager, "")

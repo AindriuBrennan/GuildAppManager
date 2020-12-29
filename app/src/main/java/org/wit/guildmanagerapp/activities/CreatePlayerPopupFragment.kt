@@ -11,7 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.fragment_create_player.*
-import kotlinx.android.synthetic.main.fragment_create_player.input_layout_name
+
 import kotlinx.android.synthetic.main.fragment_create_player.view.*
 import kotlinx.android.synthetic.main.fragment_create_player_popup.*
 import org.jetbrains.anko.AnkoLogger
