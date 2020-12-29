@@ -2,24 +2,26 @@ package org.wit.guildmanagerapp.activities
 
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.Toast
-import androidx.fragment.app.Fragment
+import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.fragment_create_player.*
-
+import kotlinx.android.synthetic.main.fragment_create_player.input_layout_name
+import kotlinx.android.synthetic.main.fragment_create_player.view.*
+import kotlinx.android.synthetic.main.fragment_create_player_popup.*
 import org.jetbrains.anko.AnkoLogger
-
+import org.jetbrains.anko.info
 import org.wit.guildmanagerapp.R
+import org.wit.guildmanagerapp.models.CharacterModel
 
 
 
-class CreatePlayerFragment: Fragment(), AnkoLogger {
+class CreatePlayerPopupFragment: DialogFragment(), AnkoLogger {
 
     private lateinit var viewModel: CharacterViewModel
 //    private lateinit var submit: Button
@@ -35,7 +37,7 @@ class CreatePlayerFragment: Fragment(), AnkoLogger {
     ): View? {
 
         viewModel = ViewModelProvider(this).get(CharacterViewModel::class.java)
-        return inflater.inflate(R.layout.fragment_create_player, container, false)
+        return inflater.inflate(R.layout.fragment_create_player_popup, container, false)
     }
 
 
@@ -52,13 +54,23 @@ class CreatePlayerFragment: Fragment(), AnkoLogger {
             Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
         })
 
-
-        button_add_character.setOnClickListener{
-            CreatePlayerPopupFragment().show(childFragmentManager, "")
+        //listener for submission button
+        submit.setOnClickListener {
+            val name: String = editTextPlayerName.text.toString().trim()
+            val race: String = editTextRace.text.toString().trim()
+            val classType: String = editTextClass.text.toString().trim()
+            info("button clicked")
+            if (TextUtils.isEmpty(name)) {
+                input_layout_name.error = getString(R.string.field_required_error)
+                return@setOnClickListener
+            }
+            val character = CharacterModel()
+            character.name = name
+            character.race = race
+            character.classType = classType
+            viewModel.addCharacter(character)
         }
-
 
     }
 
 }
-
