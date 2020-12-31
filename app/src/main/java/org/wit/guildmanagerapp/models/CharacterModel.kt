@@ -15,4 +15,14 @@ data class CharacterModel(
     var classType: String? = "",
     var itemsCollected: ArrayList<ItemModel>? = ArrayList(),
     var dateCollected: ArrayList<LocalDate>? = ArrayList(),
-)
+    var charDeleted: Boolean = false
+) {
+    override fun equals(other: Any?): Boolean {
+        return if(other is CharacterModel) {
+            other.id == id
+        } else false
+
+    }
+
+}
+

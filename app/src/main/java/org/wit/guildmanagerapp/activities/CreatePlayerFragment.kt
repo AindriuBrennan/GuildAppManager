@@ -16,10 +16,10 @@ import kotlinx.android.synthetic.main.fragment_create_player.*
 import org.jetbrains.anko.AnkoLogger
 
 import org.wit.guildmanagerapp.R
+import org.wit.guildmanagerapp.models.CharacterModel
 
 
-
-class CreatePlayerFragment: Fragment(), AnkoLogger {
+ class CreatePlayerFragment : Fragment(), CharacterRecyclerViewListener, AnkoLogger {
 
     private lateinit var viewModel: CharacterViewModel
     private val adapter = CharacterModelAdapter()
@@ -40,18 +40,40 @@ class CreatePlayerFragment: Fragment(), AnkoLogger {
         super.onViewCreated(view, savedInstanceState)
 
         recycler_view_characters.adapter = adapter
+
+        //define click listener of the adapter
+        adapter.listener = this
+
         viewModel.getCharacters()
+        viewModel.getDBUpdates()
+
+
+
+        viewModel.liveCharacterModel.observe(viewLifecycleOwner, Observer {
+            adapter.addCharacter(it)
+        })
 
         viewModel.characterModel.observe(viewLifecycleOwner, Observer {
             adapter.setCharcaters(it)
         })
 
-        button_add_character.setOnClickListener{
+        button_add_character.setOnClickListener {
             CreatePlayerPopupFragment().show(childFragmentManager, "")
         }
 
 
     }
+     //implement button from the interface
+     override fun onRecyclerViewButtonClick(view: View, character: CharacterModel) {
+         when (view.id) {
+             R.id.edit_character -> {
+                 EditPlayerPopupFragment(character).show(childFragmentManager, "")
+             }
+             R.id.delete_character -> {
+                viewModel.deleteCharacter(character)
+             }
+         }
+     }
 
-}
+ }
 
