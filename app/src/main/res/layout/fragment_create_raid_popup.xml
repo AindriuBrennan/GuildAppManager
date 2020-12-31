@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_weight="0"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="383dp"
-        android:layout_height="20dp"
+        android:layout_height="wrap_content"
         android:layout_margin="12dp"
         android:layout_weight="0.5"
         android:fontFamily="sans-serif-medium"
@@ -20,26 +19,26 @@
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
-        android:layout_height="289dp"
+        android:layout_height="318dp"
         android:layout_weight="0.5" />
 
     <Spinner
         android:id="@+id/select_character"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_weight="0.5" />
 
     <Spinner
         android:id="@+id/select_item"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_weight="0.5" />
 
     <Button
         android:id="@+id/create_item_record"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="wrap_content"
         android:layout_weight="0.5"
-        android:text="Button" />
+        android:text="Submit" />
 
 </LinearLayout>
