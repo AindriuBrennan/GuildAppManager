@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.fragment_create_player.view.*
 import kotlinx.android.synthetic.main.recycler_view_character.view.*
 import org.wit.guildmanagerapp.R
 import org.wit.guildmanagerapp.models.CharacterModel
@@ -29,6 +28,15 @@ class CharacterModelAdapter: RecyclerView.Adapter<CharacterModelAdapter.Characte
     fun setCharcaters(characters: List<CharacterModel>) {
         this.characters = characters as MutableList<CharacterModel>
         notifyDataSetChanged()
+    }
+
+    //add new character to the characters list and use notifydatasetChanged to notify the
+    //recycler view of the change
+    fun addCharacter(character: CharacterModel) {
+        if(!characters.contains(character)) {
+            characters.add(character)
+            notifyDataSetChanged()
+        }
     }
 
     class CharacterViewModel(val view: View): RecyclerView.ViewHolder(view)

@@ -40,7 +40,15 @@ class CreatePlayerFragment: Fragment(), AnkoLogger {
         super.onViewCreated(view, savedInstanceState)
 
         recycler_view_characters.adapter = adapter
+
         viewModel.getCharacters()
+        viewModel.getDBUpdates()
+
+
+
+        viewModel.liveCharacterModel.observe(viewLifecycleOwner, Observer {
+            adapter.addCharacter(it)
+        })
 
         viewModel.characterModel.observe(viewLifecycleOwner, Observer {
             adapter.setCharcaters(it)

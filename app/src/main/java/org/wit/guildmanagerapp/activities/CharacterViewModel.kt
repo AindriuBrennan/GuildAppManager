@@ -3,6 +3,7 @@ package org.wit.guildmanagerapp.activities
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 import org.wit.guildmanagerapp.models.CharacterModel
 import org.wit.guildmanagerapp.models.NODE_CHARACTERS
@@ -20,10 +21,18 @@ class CharacterViewModel : ViewModel() {
     get() = _characters
 
 
+    //live data for new data added
+    private val _liveCharacters = MutableLiveData<CharacterModel>()
+    val liveCharacterModel: LiveData<CharacterModel>
+        get() = _liveCharacters
+
 
     private val _result = MutableLiveData<Exception?>()
     val result: LiveData<Exception?>
         get() = _result
+
+
+
 
     /*
         Add character to DB, save a character under the characters node in the DB with a
@@ -44,6 +53,38 @@ class CharacterViewModel : ViewModel() {
         }
 
     }
+
+    private val childEventListener = object : ChildEventListener {
+
+
+        override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
+            val liveCharacterModel = snapshot.getValue(CharacterModel::class.java)
+            liveCharacterModel?.id = snapshot.key
+            _liveCharacters.value = liveCharacterModel
+        }
+
+        override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
+            TODO("Not yet implemented")
+        }
+
+        override fun onChildRemoved(snapshot: DataSnapshot) {
+            TODO("Not yet implemented")
+        }
+
+        override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
+            TODO("Not yet implemented")
+        }
+
+        override fun onCancelled(error: DatabaseError) {
+            TODO("Not yet implemented")
+        }
+
+    }
+
+    fun getDBUpdates() {
+        dbCharacterModels.addChildEventListener(childEventListener)
+    }
+
     /*
      Fetch data from the db, make sure the data is not null, add it to a list and assign
      it to the mutable list which gets displayed in the fragment
@@ -67,6 +108,12 @@ class CharacterViewModel : ViewModel() {
             }
 
         })
+    }
+
+    //remove the event listener when fragment is destroyed
+    override fun onCleared() {
+        super.onCleared()
+        dbCharacterModels.removeEventListener(childEventListener)
     }
 
 
