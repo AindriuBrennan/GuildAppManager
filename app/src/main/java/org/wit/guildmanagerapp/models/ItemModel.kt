@@ -1,7 +1,7 @@
 package org.wit.guildmanagerapp.models
 
-class Item (
-    val id: Long? =0,
-    val name: String = "",
+data class ItemModel (
+    var id: String? ="",
+    var name: String = "",
     var playersWithItem: ArrayList<String>? = ArrayList()
 )

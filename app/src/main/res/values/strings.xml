@@ -5,4 +5,6 @@
     <string name="field_required_error">Empty Input Invalid!</string>
     <string name="character_added">Character Added Successfully</string>
     <string name="character_failure">Error: %1$s</string>
+    <string name="item_added">Item Added Successfully</string>
+    <string name="item_failure">Error: %1$s</string>
 </resources>
