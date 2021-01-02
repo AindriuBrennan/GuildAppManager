@@ -20,6 +20,8 @@ class CharacterModelAdapter: RecyclerView.Adapter<CharacterModelAdapter.Characte
 
     override fun getItemCount() = characters.size
 
+
+
     override fun onBindViewHolder(holder: CharacterModelAdapter.CharacterViewModel, position: Int) {
         holder.view.text_view_name.text = characters[position].name
         holder.view.text_view_race.text = characters[position].race

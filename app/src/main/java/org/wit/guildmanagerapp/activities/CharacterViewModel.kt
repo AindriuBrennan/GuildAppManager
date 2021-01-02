@@ -14,8 +14,8 @@ class CharacterViewModel : ViewModel() {
     private val dbCharacterModels = FirebaseDatabase.getInstance().getReference(NODE_CHARACTERS)
 
 
-    //add data from db to this list, this list then is used inside the fragment
-    //to display the data
+    //add data from db to this list for use in the
+    // characterModelAdapter class for the recycler view
     private val _characters = MutableLiveData<List<CharacterModel>>()
     val characterModel: LiveData<List<CharacterModel>>
         get() = _characters
@@ -27,9 +27,15 @@ class CharacterViewModel : ViewModel() {
         get() = _liveCharacters
 
 
+
     private val _result = MutableLiveData<Exception?>()
     val result: LiveData<Exception?>
         get() = _result
+
+
+
+
+
 
     private val childEventListener = object : ChildEventListener {
 
