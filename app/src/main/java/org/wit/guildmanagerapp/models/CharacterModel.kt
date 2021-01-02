@@ -24,5 +24,10 @@ data class CharacterModel(
 
     }
 
+
+    override fun toString(): String {
+        return name
+    }
+
 }
 
