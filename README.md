@@ -9,13 +9,13 @@ and thumbnails
 
 
 ## Startup view
-![alt text](./readmeImages/firebase_auth.PNG)
+![Login Portal](./readmeImages/firebase_auth.PNG)
 
-##Main Activity Homepage
-![alt text](./readmeImages/home_page.PNG)
+## Main Activity Homepage
+![Main Activity ](./readmeImages/home_page.PNG)
 
 ## Create Player View
-![alt text](./readmeImages/create_player_fragment.PNG)
+![Create Player View](./readmeImages/create_player_fragment.PNG)
 
 ## Create Raid Popup
-![alt text](./readmeImages/create_raid.PNG)
+![Raid Creation](./readmeImages/create_raid.PNG)
