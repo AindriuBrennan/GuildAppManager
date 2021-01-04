@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.CalendarView
 import androidx.fragment.app.DialogFragment
@@ -17,12 +18,17 @@ import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.wit.guildmanagerapp.R
 import org.wit.guildmanagerapp.models.CharacterModel
+import org.wit.guildmanagerapp.models.ItemModel
 import java.time.LocalDate
 
-class CreateRaidPopupFragment : DialogFragment(), AnkoLogger {
+class CreateRaidPopupFragment() : DialogFragment(), AnkoLogger {
     private lateinit var viewModel: CharacterViewModel
     private lateinit var viewModelItem: ItemViewModel
     private val adapter = CharacterModelAdapter()
+
+    private lateinit var dateSelected: MutableList<String>
+    private lateinit var itemSelected: MutableList<String>
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -49,13 +55,17 @@ class CreateRaidPopupFragment : DialogFragment(), AnkoLogger {
         })
 
         viewModelItem.itemModel.observe(this, Observer {
-            val itemSpinnerAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, it)
+            val itemSpinnerAdapter =
+                ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, it)
             select_item.adapter = itemSpinnerAdapter
         })
 
-
-
-
+        //trying to figure out how to correctly save the date input
+        //to the characterModel and an appropriate variable type
+//        calendarView.setOnDateChangeListener { calendarView, i, i2 ,i3 ->
+//            val date: String = "$i3/$i2/$i"
+//            dateSelected.add(date)
+//        }
 
     }
 

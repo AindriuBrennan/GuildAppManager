@@ -13,8 +13,8 @@ data class CharacterModel(
     var name: String = "",
     var race: String? = "",
     var classType: String? = "",
-    var itemsCollected: ArrayList<ItemModel>? = ArrayList(),
-    var dateCollected: ArrayList<LocalDate>? = ArrayList(),
+    var itemsCollected: MutableList<String>? = ArrayList(),
+    var dateCollected: MutableList<String>? = ArrayList(),
     var charDeleted: Boolean = false
 ) {
     override fun equals(other: Any?): Boolean {
