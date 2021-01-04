@@ -19,3 +19,5 @@ and thumbnails
 
 ## Create Raid Popup
 ![Raid Creation](./readmeImages/create_raid.PNG)
+
+Background image credit - <https://wallpaperaccess.com/warcraft-phone>
