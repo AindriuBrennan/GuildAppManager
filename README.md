@@ -12,10 +12,10 @@ and thumbnails
 ![alt text](./readmeImages/firebase_auth.PNG)
 
 ##Main Activity Homepage
-![alt text](./readmeImage/home_page.PNG)
+![alt text](./readmeImages/home_page.PNG)
 
 ## Create Player View
-![alt text](./create_player_fragment.PNG)
+![alt text](./readmeImages/create_player_fragment.PNG)
 
 ## Create Raid Popup
 ![alt text](./readmeImages/create_raid.PNG)
