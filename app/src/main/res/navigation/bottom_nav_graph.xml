@@ -7,22 +7,22 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="org.wit.guildmanagerapp.activities.HomeFragment"
+        android:name="org.wit.guildmanagerapp.fragments.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/createPlayerFragment"
-        android:name="org.wit.guildmanagerapp.activities.CreatePlayerFragment"
+        android:name="org.wit.guildmanagerapp.fragments.CreatePlayerFragment"
         android:label="Create Player"
         tools:layout="@layout/fragment_create_player" />
     <fragment
         android:id="@+id/raidGearFragment"
-        android:name="org.wit.guildmanagerapp.activities.RaidGearFragment"
+        android:name="org.wit.guildmanagerapp.fragments.RaidGearFragment"
         android:label="Assign Loot"
         tools:layout="@layout/fragment_raid_gear" />
     <fragment
         android:id="@+id/searchFragment"
-        android:name="org.wit.guildmanagerapp.activities.SearchFragment"
+        android:name="org.wit.guildmanagerapp.fragments.SearchFragment"
         android:label="Search"
         tools:layout="@layout/fragment_search" />
 </navigation>

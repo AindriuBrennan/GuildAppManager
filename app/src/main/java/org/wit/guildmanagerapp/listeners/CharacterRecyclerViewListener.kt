@@ -1,4 +1,4 @@
-package org.wit.guildmanagerapp.activities
+package org.wit.guildmanagerapp.listeners
 
 import android.view.View
 import org.wit.guildmanagerapp.models.CharacterModel

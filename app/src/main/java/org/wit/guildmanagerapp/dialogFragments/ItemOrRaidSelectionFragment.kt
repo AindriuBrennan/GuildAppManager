@@ -1,4 +1,4 @@
-package org.wit.guildmanagerapp.activities
+package org.wit.guildmanagerapp.dialogFragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import kotlinx.android.synthetic.main.fragment_item_or_raid.*
 import org.wit.guildmanagerapp.R
+import org.wit.guildmanagerapp.dialogFragments.CreateGearPopupFragment
+import org.wit.guildmanagerapp.dialogFragments.CreateRaidPopupFragment
 
 class ItemOrRaidSelectionFragment: DialogFragment() {
 

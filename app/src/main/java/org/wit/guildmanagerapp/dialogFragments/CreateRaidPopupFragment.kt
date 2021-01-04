@@ -1,23 +1,19 @@
-package org.wit.guildmanagerapp.activities
+package org.wit.guildmanagerapp.dialogFragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.CalendarView
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.FragmentContainer
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.material.datepicker.DateSelector
 import kotlinx.android.synthetic.main.fragment_create_raid_popup.*
 import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.info
 import org.wit.guildmanagerapp.R
-import org.wit.guildmanagerapp.models.CharacterModel
-import java.time.LocalDate
+import org.wit.guildmanagerapp.viewModels.CharacterViewModel
+import org.wit.guildmanagerapp.viewModels.ItemViewModel
+import org.wit.guildmanagerapp.adapters.CharacterModelAdapter
 
 class CreateRaidPopupFragment : DialogFragment(), AnkoLogger {
     private lateinit var viewModel: CharacterViewModel
