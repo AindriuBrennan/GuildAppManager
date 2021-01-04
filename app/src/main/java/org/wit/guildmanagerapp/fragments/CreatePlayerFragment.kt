@@ -1,13 +1,9 @@
-package org.wit.guildmanagerapp.activities
+package org.wit.guildmanagerapp.fragments
 
 import android.os.Bundle
-import android.text.TextUtils
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -16,6 +12,11 @@ import kotlinx.android.synthetic.main.fragment_create_player.*
 import org.jetbrains.anko.AnkoLogger
 
 import org.wit.guildmanagerapp.R
+import org.wit.guildmanagerapp.listeners.CharacterRecyclerViewListener
+import org.wit.guildmanagerapp.viewModels.CharacterViewModel
+import org.wit.guildmanagerapp.dialogFragments.CreatePlayerPopupFragment
+import org.wit.guildmanagerapp.dialogFragments.EditPlayerPopupFragment
+import org.wit.guildmanagerapp.adapters.CharacterModelAdapter
 import org.wit.guildmanagerapp.models.CharacterModel
 
 
@@ -54,7 +55,7 @@ import org.wit.guildmanagerapp.models.CharacterModel
         })
 
         viewModel.characterModel.observe(viewLifecycleOwner, Observer {
-            adapter.setCharcaters(it)
+            adapter.setCharacters(it)
         })
 
         button_add_character.setOnClickListener {

@@ -1,4 +1,4 @@
-package org.wit.guildmanagerapp.activities
+package org.wit.guildmanagerapp.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

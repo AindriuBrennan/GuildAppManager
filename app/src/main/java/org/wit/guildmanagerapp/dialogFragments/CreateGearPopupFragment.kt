@@ -1,4 +1,4 @@
-package org.wit.guildmanagerapp.activities
+package org.wit.guildmanagerapp.dialogFragments
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.fragment_create_loot_popup.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.wit.guildmanagerapp.R
+import org.wit.guildmanagerapp.viewModels.ItemViewModel
 import org.wit.guildmanagerapp.models.ItemModel
 
 class CreateGearPopupFragment: DialogFragment(), AnkoLogger {

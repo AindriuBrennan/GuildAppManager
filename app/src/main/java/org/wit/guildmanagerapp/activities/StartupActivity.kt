@@ -25,14 +25,14 @@ class StartupActivity : AppCompatActivity(), AnkoLogger {
         loginButton = findViewById(R.id.loginButtonStartup)
 
 
-        loginButton.setOnClickListener{
+        loginButton.setOnClickListener {
             info("Startup scene to login scene button pressed")
-            val intent = Intent(this, LoginActivity::class.java )
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
         }
 
-        signupButton.setOnClickListener{
+        signupButton.setOnClickListener {
             info("Startup scene to sign-up scene button pressed")
             val intent = Intent(this, SignupActivity::class.java)
             startActivity(intent)
@@ -40,18 +40,7 @@ class StartupActivity : AppCompatActivity(), AnkoLogger {
         }
 
 
-
-
-
-
-
-
-
-
     }
-
-
-
 
 
 }

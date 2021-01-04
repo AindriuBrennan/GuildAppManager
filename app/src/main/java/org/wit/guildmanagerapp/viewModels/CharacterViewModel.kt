@@ -1,9 +1,8 @@
-package org.wit.guildmanagerapp.activities
+package org.wit.guildmanagerapp.viewModels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 import org.wit.guildmanagerapp.models.CharacterModel
 import org.wit.guildmanagerapp.models.NODE_CHARACTERS
@@ -27,14 +26,9 @@ class CharacterViewModel : ViewModel() {
         get() = _liveCharacters
 
 
-
     private val _result = MutableLiveData<Exception?>()
     val result: LiveData<Exception?>
         get() = _result
-
-
-
-
 
 
     private val childEventListener = object : ChildEventListener {
